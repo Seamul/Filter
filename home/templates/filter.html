@@ -1,0 +1,135 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/test.css' %}"> -->
+    
+</head>
+<body>
+   
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+          <h5>All Keywords:</h5>
+          <input type="checkbox" id="dhaka" name="vehicle1" value="Bike">
+          <label for="vehicle1"> Dhaka ({{tdhaka}} times found)</label><br>
+          <input type="checkbox" id="dinajpur" name="vehicle2" value="Car">
+          <label for="vehicle2"> Dinajpur ({{tdinajpur}} times found)</label><br>
+          <input type="checkbox" id="rajshahi" name="vehicle3" value="Boat">
+          <label for="vehicle3"> Rajshahi ({{trajshahi}} times found)</label><br><br>
+      </div>
+      <div class="col-sm">
+        <h5>All Users:</h5>
+        <input type="checkbox" id="sujon" name="vehicle1" value="Bike">
+        <label for="vehicle1"> Sujon</label><br>
+        <input type="checkbox" id="kamal" name="vehicle2" value="Car">
+        <label for="vehicle2"> Kamal</label><br>
+        <input type="checkbox" id="monir" name="vehicle3" value="Boat">
+        <label for="vehicle3"> Monir</label><br><br>
+      </div>
+      {%csrf_token%}
+      <div class="col-sm">
+        <h5>Time Range:</h5>
+        <input type="checkbox" id="yesterday" name="vehicle1" value="Bike">
+        <label for="vehicle1"> See data from yesterday</label><br>
+        <input type="checkbox" id="lastweek" name="vehicle2" value="Car">
+        <label for="vehicle2"> See data from last week</label><br>
+        <input type="checkbox" id="lastmonth" name="vehicle3" value="Boat">
+        <label for="vehicle3"> see data from last month </label><br><br>
+      </div>
+      <div class="col-sm">
+        <div class="row">
+          
+          <div class="col-sm pull-left">
+              <label>start: <input type="date" id = "startDate" name="startDate"/></label>
+          </div>
+          <div class="col-sm pull-left">
+              <label>end: <input type="date" id = "endDate" name="endDate"/></label>
+          </div>
+      </div>
+      </div>
+      <div class="col-sm">
+        <br><br>
+        <input type="checkbox" id="pass" name="vehicle1" value="Bike">
+      <label for="vehicle1"> PASS</label><br>
+      <input type="checkbox" id="fail" name="vehicle2" value="Car">
+      <label for="vehicle2"> FAIL</label><br>
+      
+      </div>
+      
+    </div>
+  </div>
+
+
+
+  
+  <div class="container"><button type="button" class="btn btn-primary btn-lg btn-block" id="btn">SEARCH BUTTON</button></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h5>All Students</h5><br>
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Roll</th>
+              <th scope="col">Name</th>
+              <th scope="col">City</th>
+              <th scope="col">Marks</th>
+              <th scope="col">Status</th>
+              <th scope="col">Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in student_detail%}
+            <tr>
+              <th scope="row">{{i.roll}}</th>
+              <td>{{i.name}}</td>
+              <td>{{i.city}}</td>
+              <td>{{i.marks}}</td>
+              <td>{{i.pass_fail}}</td>
+              <td>{{i.created}}</td>
+            </tr>
+        {% endfor %}
+           
+           
+          </tbody>
+        </table>
+
+
+
+        
+      </div>
+      <div class="col-sm">
+        <h5>Search Result</h5><br>
+            <span id="tbl1"></span>
+           
+           
+         
+       
+      </div>
+    </div>
+  </div>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+  <script src="{% static 'js/jquery.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
+  <!-- <script src="{% static 'test.js' %}"></script> -->
+    
+    <!-- <script src="{% static 'js/popper.min.js' %}"></script> -->
+    <script src="{% static 'js/main.js' %}"></script>
+    
+    
+    
+    
+</body>
+</html>
